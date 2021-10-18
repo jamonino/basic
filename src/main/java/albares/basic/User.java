@@ -14,8 +14,6 @@ public class User {
         this.pass = pass;
         this.age = age;
     }
-
-    
     
     public String getUsername() {
         return username;

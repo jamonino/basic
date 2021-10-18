@@ -1,0 +1,6 @@
+Secrets.java
+*.p12
+*.json
+*.class
+*.jar
+/target/
