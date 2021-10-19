@@ -4,7 +4,7 @@ package albares.basic;
 public class User {
     private String username;
     private String pass;
-    private int age;
+    private Integer age;
 
     public User() {
     }

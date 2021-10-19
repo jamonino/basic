@@ -31,7 +31,7 @@ public final class JWTUtils {
             DecodedJWT jwt = verifier.verify(token);
             return jwt.getClaim("id").asInt();
         }catch (Exception ex) {
-            /*Avisar con bandera roja*/
+            /*TODO: Avisar con bandera roja*/
             return -1;
         }
     }

@@ -31,9 +31,9 @@ public class UserService {
     
     @GET
     @Produces(MediaType.APPLICATION_JSON)
-    @Path("/{id}")
-    public User getUser(@PathParam("id") int id){ 
-        return users.get(id); 
+    @Path("/{token}")
+    public User getUser(@PathParam("token") String token){ 
+        return users.get(JWTUtils.checkJWTandGetUserId(token));
     }    
    
     @GET
@@ -59,13 +59,9 @@ public class UserService {
     
     @DELETE
     @Produces(MediaType.APPLICATION_JSON)
-    @Path("/{id}")
-    public Boolean deleteUser(@PathParam("id") int id){
-        if(users.remove(id)==null){
-            return false;
-        }else{
-            return true;
-        }
+    @Path("/{token}")
+    public Boolean deleteUser(@PathParam("token") String token){
+        return users.remove(JWTUtils.checkJWTandGetUserId(token)) != null;
     } 
     
 }
