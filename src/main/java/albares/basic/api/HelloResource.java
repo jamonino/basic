@@ -1,4 +1,4 @@
-package albares.basic;
+package albares.basic.api;
 import jakarta.ws.rs.*;
 import jakarta.ws.rs.core.MediaType;
 

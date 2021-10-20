@@ -1,5 +1,5 @@
 
-package albares.basic;
+package albares.basic.api;
 
 public class User {
     private String username;

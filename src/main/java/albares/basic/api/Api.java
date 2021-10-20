@@ -1,5 +1,5 @@
 
-package albares.basic;
+package albares.basic.api;
 
 import jakarta.ws.rs.ApplicationPath;
 import jakarta.ws.rs.core.Application;

@@ -1,7 +1,8 @@
 
-package albares.basic;
+package albares.basic.api;
 
 import albares.utils.JWTUtils;
+import albares.utils.Parameters;
 import jakarta.ws.rs.Consumes;
 import jakarta.ws.rs.DELETE;
 import jakarta.ws.rs.GET;
@@ -11,35 +12,30 @@ import jakarta.ws.rs.Path;
 import jakarta.ws.rs.PathParam;
 import jakarta.ws.rs.Produces;
 import jakarta.ws.rs.core.MediaType;
-import java.util.HashMap;
 import java.util.Map;
-import java.util.concurrent.atomic.AtomicInteger;
 
 @Path("/user")
 public class UserService {
-    
-    private static final Map<Integer, User> users = new HashMap();
-    private static final AtomicInteger counter = new AtomicInteger(0);
     
     @POST
     @Produces(MediaType.TEXT_PLAIN)
     @Consumes(MediaType.APPLICATION_JSON)
     public String createUser(User newUser){   
-        users.put(counter.incrementAndGet(),newUser);
-        return JWTUtils.generateToken(counter.get());   
+        Parameters.users.put(Parameters.idUsers.incrementAndGet(),newUser);
+        return JWTUtils.generateToken(Parameters.idUsers.get());   
     }    
     
     @GET
     @Produces(MediaType.APPLICATION_JSON)
     @Path("/{token}")
     public User getUser(@PathParam("token") String token){ 
-        return users.get(JWTUtils.checkJWTandGetUserId(token));
+        return Parameters.users.get(JWTUtils.checkJWTandGetUserId(token));
     }    
    
     @GET
     @Produces(MediaType.APPLICATION_JSON)
     public Map getUsers(){ 
-        return users;
+        return Parameters.users;
     }  
     
     @PUT
@@ -47,7 +43,7 @@ public class UserService {
     @Path("/{token}/{newPass}")
     public Boolean editUser(@PathParam("token") String token,@PathParam("newPass") String newPass){ 
         
-        User userToEdit = users.get(JWTUtils.checkJWTandGetUserId(token));
+        User userToEdit = Parameters.users.get(JWTUtils.checkJWTandGetUserId(token));
    
         if(userToEdit == null){
             return false;            
@@ -61,7 +57,7 @@ public class UserService {
     @Produces(MediaType.APPLICATION_JSON)
     @Path("/{token}")
     public Boolean deleteUser(@PathParam("token") String token){
-        return users.remove(JWTUtils.checkJWTandGetUserId(token)) != null;
+        return Parameters.users.remove(JWTUtils.checkJWTandGetUserId(token)) != null;
     } 
     
 }
