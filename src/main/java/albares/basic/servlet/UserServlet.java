@@ -8,7 +8,7 @@ import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
-@WebServlet("/world")
+@WebServlet("/addUser")
 public class UserServlet extends HttpServlet {
     
     @Override
