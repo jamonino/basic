@@ -7,7 +7,22 @@
     </head>
     <body>
         <form>
-            Hello World!
+            <form action="addUser" method="POST">
+                <table style="with: 50%">
+                    <tr>
+                            <td>User</td>
+                            <td><input type="text" name="username" /></td>
+                    </tr>
+                    <tr>
+                            <td>Password</td>
+                            <td><input type="password" name="password" /></td>
+                    </tr>
+                    <tr>
+                            <td>Age</td>
+                            <td><input type="text" name="age" /></td>
+                    </tr>
+                </table>
+            <input type="submit" value="Create User" /></form>
         </form>
     </body>
 </html>
