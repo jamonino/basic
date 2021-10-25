@@ -25,7 +25,6 @@ public class UserServlet extends HttpServlet {
         
         Parameters.users.put(Parameters.idUsers.incrementAndGet(),newUser);
         
-        
        
     }
 }
