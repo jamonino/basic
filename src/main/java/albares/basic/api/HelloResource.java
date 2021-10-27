@@ -19,7 +19,6 @@ public class HelloResource {
     }
     
     @OPTIONS
-    @Produces(MediaType.TEXT_HTML)
     public Response doOptions(){
         Response r = Response.ok()
                            .header("Access-Control-Allow-Origin","*")
@@ -27,6 +26,5 @@ public class HelloResource {
                            .header("Access-Control-Allow-Headers","Content-Type, Authorization")
                            .build();
         return r;
-        
     }
 }
